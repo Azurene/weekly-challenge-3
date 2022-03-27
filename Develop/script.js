@@ -1,14 +1,13 @@
 // Assignment code here
-var passwordCharacteristics = [
-  passwordLength = "",
-  passwordLowercase = false,
-  passwordUppercase = false,
-  passwordNumeric = false,
-  passwordSpecial = false,
-  passwordOptions = {
-    passwordLength 
-  }
-]
+passwordOptions = {
+  passwordLength: 0,
+  passwordLowercase: false,
+  passwordUppercase: false,
+  passwordNumeric: false,
+  passwordSpecial: false
+}
+
+
 // test
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -47,10 +46,10 @@ passwordOptions.passwordLength = changeLength;
     }
     passwordText.value = password;
   }
-  console.log(passwordCharacteristics);
+  console.log(passwordOptions)
 };
 
-generatePassword();
+writePassword();
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
