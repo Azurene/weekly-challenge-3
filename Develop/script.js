@@ -6,7 +6,7 @@ var passwordCharacteristics = [
   passwordNumeric = false,
   passwordSpecial = false,
   passwordOptions = {
-    passwordLength = 
+    passwordLength 
   }
 ]
 
