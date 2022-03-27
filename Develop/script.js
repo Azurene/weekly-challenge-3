@@ -21,10 +21,17 @@ function writePassword() {
 var generatePassword = function() {
   // ask for length of password
   var passwordLength = window.prompt("How many characters would you like your password to be?");
-  passwordLength = createdPassword.length
+  
   // choose length between 8 and 128 characters
-  if (createdPassword.length > 8  || createdPassword.length < 128) {
-    
+  if (createdPassword.length === "") {
+    window.confirm("Please enter a numerical value between 8 and 128");
+    return passwordLength;
+  }
+  else if (passwordLength > 8  && passwordLength < 128) {
+    createdPassword.length = passwordLength;
+  }
+  else {
+
   }
   // ask for character types
   // ask lowercase
