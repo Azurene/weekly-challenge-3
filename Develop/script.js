@@ -1,17 +1,37 @@
-// Assignment code here
-var createdPassword = {
-  length: 0,
-  lowercase: false,
-  uppercase: false,
-  numeric: false,
-  special: false,
-}
+ // Assignment code here
+var passwordOptions = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbol
+};
+
+var getRandomLower = function() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+};
+
+var getRandomUpper = function() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+};
+
+var getRandomUpper = function() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+};
+
+var getRandomNumber = function() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+};
+
+var getRandomSymbol = function() {
+  var symbols = '!@#$%^&*()_+{}[]\;:,./'
+  return symbols[Math.floor(Math.random() * symbols.length)];
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
+var writePassword = function() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -19,42 +39,15 @@ function writePassword() {
 }
 
 var generatePassword = function() {
-  // ask for length of password
-  var passwordLength = window.prompt("How many characters would you like your password to be?");
-  
-  // choose length between 8 and 128 characters
-  if (createdPassword.length === "") {
-    window.confirm("Please enter a numerical value between 8 and 128");
-    return passwordLength;
-  }
-  else if (passwordLength > 8  && passwordLength < 128) {
-    createdPassword.length = passwordLength;
-  }
-  else {
+  var length = window.prompt("How many characters would you like your password to be?");
+  var lower = window.confirm("Would you like your password to have lowercase letters?");
+  var upper = window.confirm("Would you like your password to have uppercase letters?");
+  var number = window.confirm("Would you like your password to have numbers?");
+  var special = window.confirm("Would you like your password to have special characters?");
 
-  }
-  // ask for character types
-  // ask lowercase
-  var confirmLowercase = window.confirm("Would you like your password to have lowercase letters?");
-  if (confirmLowercase === true) {
-    createdPassword.lowercase = true;
-  }
-  // ask uppercase
-  var confirmUppercase = window.confirm("Would you like your password to have uppercase letters?");
-  if (confirmUppercase === true) {
-    createdPassword.uppercase = true;
-  }
-  // ask numeric
-  var confirmNumeric = window.confirm("Would you like your password to have numbers?");
-  if (confirmNumeric === true) {
-    createdPassword.numeric = true;
-  }
-  // ask special characters
-  var confirmSpecial = window.confirm("Would you like your password to have special characters?");
-  if (confirmSpecial === true) {
-    createdPassword.special = true;
-  }
-  console.log(createdPassword);
+  passwordLength = parseInt(length);
+
+  console.log(passwordLength);
 }
 
 // Add event listener to generate button
