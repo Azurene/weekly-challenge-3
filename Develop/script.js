@@ -38,12 +38,16 @@ var writePassword = function() {
   passwordText.value = password;
 }
 
-var generatePassword = function() {
+var passwordCriteria = function() {
   var length = window.prompt("How many characters would you like your password to be?");
   var lower = window.confirm("Would you like your password to have lowercase letters?");
   var upper = window.confirm("Would you like your password to have uppercase letters?");
   var number = window.confirm("Would you like your password to have numbers?");
   var special = window.confirm("Would you like your password to have special characters?");
+}
+
+var generatePassword = function() {
+  
 
   passwordLength = parseInt(length);
 
